@@ -2,7 +2,6 @@
 
 A modern, cross-platform Minesweeper game built with Rust and egui.
 
-![License](https://img.shields.io/badge/license-MIT-blue.svg)
 ![Rust](https://img.shields.io/badge/rust-1.70+-orange.svg)
 
 ## Overview
