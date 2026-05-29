@@ -36,21 +36,7 @@ A complete implementation of the classic Minesweeper game with a modern, sleek U
 
 ## Screenshots
 
-```
-┌─────────────────────────────────────────────┐
-│ ☀️  Difficulty: Medium          00:42 💣 10 │
-│                                             │
-│   █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █         │
-│   █ 2 █ █ █ █ █ █ █ █ █ █ █ █ █ █         │
-│   █ 1 2 █ █ █ █ █ █ █ █ █ █ █ █ █         │
-│   █ 0 1 █ █ █ █ █ █ █ █ █ █ █ █ █         │
-│   █ 0 0 █ █ █ █ █ █ █ █ █ █ █ █ █         │
-│   █ 1 1 █ █ █ █ █ █ █ █ █ █ █ █ █         │
-│   █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █         │
-│   █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █         │
-│                                             │
-└─────────────────────────────────────────────┘
-```
+![Rust](assets/images/minesweeper.webp)
 
 ## Building
 
