@@ -2,7 +2,6 @@
 
 A modern, cross-platform Minesweeper game built with Rust and egui.
 
-![License](https://img.shields.io/badge/license-MIT-blue.svg)
 ![Rust](https://img.shields.io/badge/rust-1.70+-orange.svg)
 
 ## Overview
@@ -128,11 +127,3 @@ pub enum Difficulty {
     Custom { width, height, mines },  // Custom dimensions
 }
 ```
-
-## License
-
-MIT License - feel free to use this project for any purpose.
-
-## Contributing
-
-Contributions welcome! Please feel free to submit a Pull Request.
