@@ -128,11 +128,3 @@ pub enum Difficulty {
     Custom { width, height, mines },  // Custom dimensions
 }
 ```
-
-## License
-
-MIT License - feel free to use this project for any purpose.
-
-## Contributing
-
-Contributions welcome! Please feel free to submit a Pull Request.
