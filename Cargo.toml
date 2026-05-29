@@ -1,0 +1,17 @@
+[package]
+name = "minesweeper"
+version = "1.0.0"
+edition = "2021"
+authors = ["Developer"]
+description = "A modern Minesweeper game built with Rust and egui"
+
+[dependencies]
+eframe = "0.29"
+egui = "0.29"
+rand = "0.8"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+
+[profile.release]
+opt-level = 3
+lto = true
