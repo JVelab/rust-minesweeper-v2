@@ -12,18 +12,25 @@ pub struct MinesweeperApp {
     cell_size: f32,
     show_settings: bool,
     show_game_over_dialog: bool,
+    custom_width: usize,
+    custom_height: usize,
+    custom_mines: usize,
 }
 
 impl MinesweeperApp {
     pub fn new() -> Self {
+        let default_settings = Settings::default();
         Self {
-            game: Game::from_difficulty(Settings::default().difficulty),
-            settings: Settings::default(),
+            game: Game::from_difficulty(default_settings.difficulty),
+            settings: default_settings,
             theme: Theme::dark(),
             cell_painter: CellPainter::new(),
             cell_size: 36.0,
             show_settings: false,
             show_game_over_dialog: false,
+            custom_width: 16,
+            custom_height: 16,
+            custom_mines: 40,
         }
     }
 
@@ -305,7 +312,7 @@ impl MinesweeperApp {
             .collapsible(false)
             .anchor(Align2::CENTER_CENTER, [0.0, 0.0])
             .show(ctx, |ui| {
-                ui.set_width(300.0);
+                ui.set_width(320.0);
                 
                 ui.label(RichText::new("New Game").font(FontId::proportional(20.0)));
                 ui.add_space(16.0);
@@ -318,6 +325,38 @@ impl MinesweeperApp {
                 }
                 if ui.button("Hard (30x16, 99 mines)").clicked() {
                     self.start_new_game(crate::settings::Difficulty::Hard);
+                }
+                
+                ui.add_space(16.0);
+                ui.separator();
+                ui.add_space(16.0);
+                
+                ui.label("Custom Difficulty:");
+                ui.add_space(8.0);
+                
+                ui.horizontal(|ui| {
+                    ui.label("Width:");
+                    ui.add(egui::DragValue::new(&mut self.custom_width).range(5..=50));
+                });
+                
+                ui.horizontal(|ui| {
+                    ui.label("Height:");
+                    ui.add(egui::DragValue::new(&mut self.custom_height).range(5..=50));
+                });
+                
+                ui.horizontal(|ui| {
+                    ui.label("Mines:");
+                    let max_mines = self.custom_width * self.custom_height - 1;
+                    ui.add(egui::DragValue::new(&mut self.custom_mines).range(1..=max_mines));
+                });
+                
+                if ui.button("Start Custom Game").clicked() {
+                    let diff = crate::settings::Difficulty::Custom {
+                        width: self.custom_width,
+                        height: self.custom_height,
+                        mines: self.custom_mines,
+                    };
+                    self.start_new_game(diff);
                 }
                 
                 ui.add_space(16.0);

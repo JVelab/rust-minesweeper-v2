@@ -15,12 +15,12 @@ impl Default for Difficulty {
 }
 
 impl Difficulty {
-    pub fn display_name(&self) -> &'static str {
+    pub fn display_name(&self) -> String {
         match self {
-            Difficulty::Easy => "Easy",
-            Difficulty::Medium => "Medium",
-            Difficulty::Hard => "Hard",
-            Difficulty::Custom { .. } => "Custom",
+            Difficulty::Easy => "Easy".to_string(),
+            Difficulty::Medium => "Medium".to_string(),
+            Difficulty::Hard => "Hard".to_string(),
+            Difficulty::Custom { width, height, mines } => format!("Custom ({}x{}, {} mines)", width, height, mines),
         }
     }
 
