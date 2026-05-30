@@ -82,6 +82,7 @@ impl eframe::App for MinesweeperApp {
 }
 
 impl MinesweeperApp {
+
     fn render_header(&mut self, ui: &mut egui::Ui) {
         ui.horizontal(|ui| {
             let theme_btn = egui::Button::new(if self.theme.is_dark { "☀️" } else { "🌙" })
